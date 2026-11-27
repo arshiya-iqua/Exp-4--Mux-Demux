@@ -15,10 +15,51 @@ Boolean Functions
 <img width="575" height="65" alt="image" src="https://github.com/user-attachments/assets/04c2d90c-0b6b-4b35-b603-d0e10e1e4f00" />
 
 ## Design / RTL Program
+```
+// gedit mux_demux.v
+module mux2to1 (
+    input  wire A,      // input line 0
+    input  wire B,      // input line 1
+    input  wire S,      // select line
+    output wire Y       // output
+);
+    assign Y = (~S & A) | (S & B);
+endmodule
+ 
+module demux1to2 (
+    input  wire D,      // data input
+    input  wire S,      // select line
+    output wire Y0,     // output line 0
+    output wire Y1      // output line 1
+);
+    assign Y0 = (~S) & D;
+    assign Y1 = S & D;
+endmodule
 
+```
 
 ## **Testbench Program
-
+```
+// gedit mux_demux.v
+module mux2to1 (
+    input  wire A,      // input line 0
+    input  wire B,      // input line 1
+    input  wire S,      // select line
+    output wire Y       // output
+);
+    assign Y = (~S & A) | (S & B);
+endmodule
+ 
+module demux1to2 (
+    input  wire D,      // data input
+    input  wire S,      // select line
+    output wire Y0,     // output line 0
+    output wire Y1      // output line 1
+);
+    assign Y0 = (~S) & D;
+    assign Y1 = S & D;
+endmodule
+```
 
 
 ## Truth Table
